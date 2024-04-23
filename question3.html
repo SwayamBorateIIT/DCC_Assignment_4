@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 2(graph)</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <style>
+        body {font-family: Arial, sans-serif;margin: 0;padding: 0;}
+        .chart-container {display: flex;justify-content: space-between;max-width: 1400px; margin: 0 auto;}
+        .chart-container canvas {max-width: calc(50% - 10px); max-height: 500px; margin-right: 10px;}
+        .home-button {margin-bottom: 20px;}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Question 2(graph)</h1>
+    </header>
+
+    <form method="POST" action="/question3">
+        <label for="party">Select Purchaser:</label>
+        <select name="dropdown" id="party">
+            {% for i in dropdown_options %}
+                <option value="{{ i }}"{% if i == selected_option %} selected {% endif %}>{{ i }}</option>
+            {% endfor %}
+  
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+    <br>
+    <a href="/"><button>Home</button></a>
+    {% if selected_option %}
+        <h3>Selected Purchaser: {{ selected_option }}</h3>
+    {% endif %}
+
+ 
+    {% if data_a3 %}
+        <h3>Yearly data of Number of Bonds Purchased and Total Value Purchased</h3>
+        <table border="1">
+      
+            <thead>
+                <tr>
+                    <th>Purchase Year</th>
+                    <th>No. of Bonds Purchased</th>
+                    <th>Total Value Purchased</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data_a3 %}
+                    <tr>
+                        {% for i in row %}
+                            <td>{{ i }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+    <div class="chart-container">
+        <canvas id="first_graph"style="max-height: 500px;max-width: 600px;"></canvas>
+        <canvas id="second_graph"style="max-height: 500px;max-width: 600px;"></canvas>
+    </div>
+
+
+
+    <script>
+      
+        var xValues = {{ x_values | safe }};
+        var y1Values = {{ y1_values | safe }};
+        
+       
+        var ctx = document.getElementById('first_graph').getContext('2d');
+        var first_graph = new Chart(ctx, {
+            type: 'bar', 
+            data: {
+                labels: xValues,
+                datasets: [{
+                    label: 'Number of Bonds per year', 
+                    data: y1Values,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)', 
+                    borderColor: 'rgba(54, 162, 235, 1)', 
+                    borderWidth: 1 
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true 
+                    }
+                }
+            }
+        });
+
+        var y2Values = {{ y3_values | safe}};
+       
+        var ctx2 = document.getElementById('second_graph').getContext('2d');
+        var second_graph = new Chart(ctx2, {
+            type: 'bar', 
+            data: {
+                labels: xValues,
+                datasets: [{
+                    label: 'Total value of Bonds purchased per year', 
+                    data: y2Values,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)', 
+                    borderColor: 'rgba(255, 99, 132, 1)', 
+                    borderWidth: 1 
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true 
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

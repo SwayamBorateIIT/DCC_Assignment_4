@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 1</title>
+    <style>
+        body {font-family: Arial, sans-serif;margin: 0;padding: 0;}
+        header {background-color: #333;color: #fff;text-align: center;padding: 10px;}
+        form {text-align: center;margin-bottom: 20px;}
+        form label {font-weight: bold;}
+        form input[type="text"] {padding: 5px;margin: 5px;}
+        div {margin: 0 auto;}
+        table {width: 100%;border-collapse: collapse;}
+        th, td {border: 1px solid #ddd;padding: 8px;text-align: left;}
+        th {background-color: #333;color: #fff;}
+        tbody tr:nth-child(even) {background-color: #f2f2f2;}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Question 1</h1>
+    </header>
+    <form method="post" action="/question1">
+        <label for="box">Search by Bond Number:</label>
+        <input name="box" type="text" id="box">
+        <input type="submit" value="Search">
+        
+    </form>
+
+<br>
+<a href="/"><button>Home</button></a>
+    {% if data_a1 %}
+    <div style="overflow-x:auto;">
+        <h2>Purchase Details</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Sr No.</th>
+                    <th>Reference No (URN)</th>
+                    <th>Journal Date</th>
+                    <th>Date of Purchase</th>
+                    <th>Date of Expiry</th>
+                    <th>Name of the Purchaser</th>
+                    <th>Prefix</th>
+                    <th>Bond Number</th>
+                    <th>Denominations</th>
+                    <th>Issue Branch Code</th>
+                    <th>Issue Teller</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data_a1.purchase_data %}
+                <tr>
+                    {% for i in row %}
+                    <td>{{ i }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div style="overflow-x:auto;">
+        <h2>Redemption Details</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Sr No.</th>
+                    <th>Date of Encashment</th>
+                    <th>Name of the Political Party</th>
+                    <th>Account no. of the Political Party</th>
+                    <th>Prefix</th>
+                    <th>Bond Number</th>
+                    <th>Denominations</th>
+                    <th>Pay Branch Code</th>
+                    <th>Pay Teller</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data_a1.redemption_data %}
+                <tr>
+                    {% for i in row %}
+                    <td>{{ i }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+
+    {% endif %}
+</body>
+</html>
