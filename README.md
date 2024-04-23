@@ -33,7 +33,11 @@ Then choose the csv file which will we be downloaded when you run the PDF_TO_CSV
 
 ![Screenshot (311)](https://github.com/SwayamBorateIIT/DCC_Assignment_4/assets/167902886/c736b2bb-a616-4a4d-af29-ac685dc27453)
 
------Then open the main.py file and change the password of MYSQL.----
+-----Then open the main.py file and change the MYSQL user and Password to establish a successful connection between flask and MYSQL----
+
+Apply the changes here:
+![Screenshot 2024-04-23 233815](https://github.com/SwayamBorateIIT/DCC_Assignment_4/assets/167902886/c6ed1466-364d-479e-b618-ab66ddd009bd)
+Apply the changes here
 
 
 -----These are the Screenshots of Website----
@@ -45,3 +49,5 @@ Then choose the csv file which will we be downloaded when you run the PDF_TO_CSV
 ![Screenshot (307)](https://github.com/SwayamBorateIIT/DCC_Assignment_4/assets/167902886/1099f636-5733-4cd0-8fd5-6d2abf93f4dd)
 ![Screenshot (308)](https://github.com/SwayamBorateIIT/DCC_Assignment_4/assets/167902886/31728ab4-42d4-41f2-8230-f6ccbdb80d96)
 ![Screenshot (309)](https://github.com/SwayamBorateIIT/DCC_Assignment_4/assets/167902886/6bc8bc8f-388c-4a97-95b1-d30da79e2124)
+![Uploading Screenshot (315).png…]()
+
