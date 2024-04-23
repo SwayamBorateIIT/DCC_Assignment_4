@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 5</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        </style>
+</head>
+<body>
+    <h2>Search by Purchaser</h2>
+
+    
+ 
+    <form method="POST" action="/question6">
+        <label for="party">Select Purchaser:</label>
+        <select name="dropdown" id="party">
+            {% for option in dropdown_options %}
+                <option value="{{ option }}"{% if option == selected_option %} selected {% endif %}>{{ option }}</option>
+            {% endfor %}
+  
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+<br>
+<a href="/"><button>Home</button></a>
+    {% if data_a5 %}
+    <h3>Selected Purchaser: {{ selected_option }}</h3>
+    <h2>Total Value Donated = {{count}}</h2>
+    <p>Table of Political Parties that have received donation from: {{ selected_option }}</p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name of the Political Parties</th>
+                <th>Denominations</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data_a5 %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</body>
+</html>
