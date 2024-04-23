@@ -1,16 +1,42 @@
 # DCC_Assignment_4
 This is Swayam Borate's Assignment 4
 
-First download all the files and then store the html files in a folder named Templates.
-Then run the PDF_TO_CSV.py which converts the pdf file to csv.
-Create a Database named dcc_assignment_4.
-Then import the CSV file in MYSQL using the following steps.
+Make sure these libraries are installed.
+
+1]pip install PyMuPDF
+
+2]pip install Flask Flask-MySQLdb
+
+3]pip install pandas
+
+
+----First download all the files and then store the html files in a folder named Templates.----
+
+----Then run the PDF_TO_CSV.py which converts the pdf file to csv.----
+
+----Create a Database named "dcc_assignment_4" using MYSQL Workbench.----
+
+For creating a new databse follow below steps:
+
+1] Create a new Scehma named "dcc_assignment_4"
+
+![Screenshot (312)](https://github.com/SwayamBorateIIT/DCC_Assignment_4/assets/167902886/f6aedf13-70ca-4088-8f25-dea60defa59f)
+
+
+----Then import the CSV file in MYSQL using the following steps.----
+
+1]Click on "Table Data Import Wizard"
+
 ![Screenshot (310)](https://github.com/SwayamBorateIIT/DCC_Assignment_4/assets/167902886/47171f4e-4772-47f1-9bc3-6cd98201dfc4)
-Click on "Table Data Import Wizard"
-Then choose the csv file and continue clicking on "Next" till the csv file is imported as table.
+
+Then choose the csv file which will we be downloaded when you run the PDF_TO_CSV.py file and continue clicking on "Next" till the csv file is imported as table.
+
+![Screenshot (311)](https://github.com/SwayamBorateIIT/DCC_Assignment_4/assets/167902886/c736b2bb-a616-4a4d-af29-ac685dc27453)
+
+-----Then open the main.py file and change the password of MYSQL.----
 
 
-
+-----These are the Screenshots of Website----
 
 ![Screenshot (303)](https://github.com/SwayamBorateIIT/DCC_Assignment_4/assets/167902886/4493ed3e-8f37-4ed1-995b-864e37bc2326)
 ![Screenshot (304)](https://github.com/SwayamBorateIIT/DCC_Assignment_4/assets/167902886/69ac10e6-9d89-403a-a519-d49520621ce0)
